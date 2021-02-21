@@ -1,7 +1,6 @@
 export default class EstabelecimentoDTO{
-
         id!: Number;
-        enderecoRua!: String;
+        endereco!: String;
         telefone!: String;;
         profissional!: String;
         nome!: String

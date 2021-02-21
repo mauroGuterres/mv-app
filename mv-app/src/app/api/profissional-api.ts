@@ -1,4 +1,4 @@
-import {HttpClient, HttpHandler, HttpXhrBackend} from "@angular/common/http";
+import {HttpClient, HttpHandler, HttpParams, HttpParamsOptions, HttpXhrBackend} from "@angular/common/http";
 import { ComponentFactoryResolver } from "@angular/core";
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
@@ -11,16 +11,17 @@ export default class ProfissionalApi{
     profissionais!: ProfissionalDTO[];
     baseUrl: string = "http://localhost:8080/"
 
-    constructor(httpClient: HttpClient){        
+    constructor(httpClient: HttpClient){                        
         this.httpClient = httpClient;        
     }
 
-    getProfissional(): String{
-        this.httpClient.options(this.baseUrl, {headers:{'‘Access-Control-Allow-Origin': "*", body: "{}"}});
-        this.httpClient.get(this.baseUrl + "profissional/buscar/0/10").toPromise().then(r => {
-            console.log(r);
-        });        
-        return "";
+    getProfissional(pf: ProfissionalDTO): Promise<void | ProfissionalDTO[]>{
+        //used post method cause it needs a body
+        //just couldn't with get....        
+        let result = this.httpClient.post<ProfissionalDTO[]>(this.baseUrl + "profissional/buscar/0/10", pf).toPromise<ProfissionalDTO[]>().then<ProfissionalDTO[]>((results) => {             
+             return results;
+        }).catch(e => console.log(e));            
+        return result;
     }
     
 }
