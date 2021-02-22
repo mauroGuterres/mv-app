@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import ProfissionalApi from '../../api/profissional-api';
-import {HttpClient} from '@angular/common/http';
 import ProfissionalDTO from 'src/app/dto/profissional-dto';
+import ProfissionalApi from 'src/app/api/profissional-api';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profissional',

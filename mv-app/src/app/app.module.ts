@@ -16,8 +16,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AboutComponent } from './components/about/about.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { EstabelecimentoComponent } from './components/estabelecimento/estabelecimento.component';
+import { EstabelecimentoComponent } from './components/estabelecimento/listagem/estabelecimento.component';
 import { ProfissionalComponent } from './components/profissional/profissional.component';
+import { EstabelecimentoAddComponent } from './components/estabelecimento/add/estabelecimento-add.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProfissionalComponent } from './components/profissional/profissional.co
     AboutComponent,
     WelcomeComponent,
     EstabelecimentoComponent,
-    ProfissionalComponent
+    ProfissionalComponent,
+    EstabelecimentoAddComponent
   ],
   imports: [
     BrowserModule,
