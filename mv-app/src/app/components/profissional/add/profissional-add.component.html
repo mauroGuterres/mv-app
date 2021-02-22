@@ -1,0 +1,24 @@
+<div class="container">
+
+    <mat-form-field appearance="standard">
+        <mat-label>Nome</mat-label>
+        <input [(ngModel)]="profissional.nome"  matInput placeholder="Nome do Profissional">                
+    </mat-form-field>
+    
+    <mat-form-field appearance="standard">
+        <mat-label>Endereço</mat-label>
+        <input [(ngModel)]="profissional.endereco" matInput placeholder="Endereço do Profissional">
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Celular</mat-label>
+        <input [(ngModel)]="profissional.celular" matInput placeholder="Celular do Profissional">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+        <mat-label>Função</mat-label>
+        <input [(ngModel)]="profissional.funcao" matInput placeholder="Função do Profissional">
+    </mat-form-field>
+     <mat-divider></mat-divider>
+    <button (click)="saveProfissional()" mat-raised-button color="primary">Salvar</button>
+    
+</div>

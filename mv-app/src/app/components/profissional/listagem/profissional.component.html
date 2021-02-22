@@ -1,5 +1,12 @@
 <div class="container">
   
+  <div [align]="'right'">
+    <a href="profissional/add"><button mat-fab color="primary">
+      <mat-icon>add</mat-icon>
+    </button></a>
+  </div>
+  <mat-divider class="space"></mat-divider>
+
     <table mat-table [dataSource]="profissional" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.

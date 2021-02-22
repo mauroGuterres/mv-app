@@ -20,8 +20,9 @@ import { MatInputModule } from '@angular/material/input';
 import { AboutComponent } from './components/about/about.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { EstabelecimentoComponent } from './components/estabelecimento/listagem/estabelecimento.component';
-import { ProfissionalComponent } from './components/profissional/profissional.component';
+import { ProfissionalComponent } from './components/profissional/listagem/profissional.component';
 import { EstabelecimentoAddComponent } from './components/estabelecimento/add/estabelecimento-add.component';
+import { ProfissionalAddComponent } from './components/profissional/add/profissional-add.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EstabelecimentoAddComponent } from './components/estabelecimento/add/es
     WelcomeComponent,
     EstabelecimentoComponent,
     ProfissionalComponent,
-    EstabelecimentoAddComponent
+    EstabelecimentoAddComponent,
+    ProfissionalAddComponent
   ],
   imports: [
     BrowserModule,

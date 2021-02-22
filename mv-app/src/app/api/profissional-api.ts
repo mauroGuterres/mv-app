@@ -23,5 +23,20 @@ export default class ProfissionalApi{
         }).catch(e => console.log(e));            
         return result;
     }
+
+
+    getProfissionalById(Id: Number): Promise<void | ProfissionalDTO>{
+        let result = this.httpClient.get<ProfissionalDTO>(this.baseUrl + "profissional/get/" + Id).toPromise<ProfissionalDTO>().then(results => {
+            return results;
+        });
+        return result;
+    }
+
+    saveProfissional(profissional: ProfissionalDTO): Promise<void | String>{
+        let result = this.httpClient.post<String>(this.baseUrl + "profissional/cadastrar", profissional).toPromise<String>().then<String>(r => {
+            return r;
+        });
+        return result;
+    }
     
 }
