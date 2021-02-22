@@ -1,12 +1,12 @@
 export default class EstabelecimentoDTO{
-        id!: Number;
+        id!: Number | null;
         endereco!: String | null;
         telefone!: String | null;
         profissional!: String | null;
         nome!: String | null
 
         constructor(){
-                this.id = 0;
+                this.id = null;
                 this.endereco = null;
                 this.telefone = null;
                 this.profissional = null;

@@ -27,5 +27,12 @@ export default class EstabelecimentoApi{
         });
         return result;
     }
+
+    saveEstabelecimento(estabelecimento: EstabelecimentoDTO): Promise<void | String>{
+        let result = this.httpClient.post<String>(this.baseUrl + "estabelecimento/cadastrar", estabelecimento).toPromise<String>().then<String>(r => {
+            return r;
+        });
+        return result;
+    }
     
 }

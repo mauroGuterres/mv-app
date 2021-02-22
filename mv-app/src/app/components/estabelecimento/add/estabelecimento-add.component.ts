@@ -17,7 +17,7 @@ export class EstabelecimentoAddComponent implements OnInit {
   shouldGetEstabelecimento: boolean = false;
   Id: Number = 0;
 
-  constructor(httpClient: HttpClient, route: ActivatedRoute) {
+  constructor(httpClient: HttpClient, route: ActivatedRoute) {    
     this.estabelecimentoApi = new EstabelecimentoApi(httpClient);
     this.estabelecimento = new EstabelecimentoDTO();
     route.params.subscribe(params => {
@@ -32,6 +32,12 @@ export class EstabelecimentoAddComponent implements OnInit {
       this.estabelecimento = r as EstabelecimentoDTO;      
      });
      
+   }
+
+   saveEstabelecimento(){
+     this.estabelecimentoApi.saveEstabelecimento(this.estabelecimento).then(r => {
+       console.log(r);
+     });
    }
 
   ngOnInit(): void {

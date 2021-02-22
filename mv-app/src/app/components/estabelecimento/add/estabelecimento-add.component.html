@@ -1,18 +1,20 @@
 <div class="container">
-        
+
     <mat-form-field appearance="standard">
         <mat-label>Nome</mat-label>
-        <input [value]="estabelecimento.nome" matInput placeholder="Nome do Estabelecimento">                
+        <input [(ngModel)]="estabelecimento.nome"  matInput placeholder="Nome do Estabelecimento">                
     </mat-form-field>
     
     <mat-form-field appearance="standard">
         <mat-label>Endereço</mat-label>
-        <input [value]="estabelecimento.endereco" matInput placeholder="Endereço do Estabelecimento">
+        <input [(ngModel)]="estabelecimento.endereco" matInput placeholder="Endereço do Estabelecimento">
     </mat-form-field>
 
     <mat-form-field appearance="standard">
         <mat-label>Telefone</mat-label>
-        <input [value]="estabelecimento.telefone" matInput placeholder="Telefone do Estabelecimento">
+        <input [(ngModel)]="estabelecimento.telefone" matInput placeholder="Telefone do Estabelecimento">
     </mat-form-field>
+     <mat-divider></mat-divider>
+    <button (click)="saveEstabelecimento()" mat-raised-button color="primary">Salvar</button>
     
 </div>

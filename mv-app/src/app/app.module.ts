@@ -9,6 +9,7 @@ import { NavigatorComponent } from './components/navigator/navigator.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from '@angular/material/table';
+import {FormsModule} from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -46,7 +47,8 @@ import { EstabelecimentoAddComponent } from './components/estabelecimento/add/es
     MatCardModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [NavigatorComponent]
