@@ -20,5 +20,12 @@ export default class EstabelecimentoApi{
         }).catch(e => console.log(e));            
         return result;
     }
+
+    getEstabelecimentoById(Id: Number): Promise<void | EstabelecimentoDTO>{
+        let result = this.httpClient.get<EstabelecimentoDTO>(this.baseUrl + "estabelecimento/get/" + Id).toPromise<EstabelecimentoDTO>().then(results => {
+            return results;
+        });
+        return result;
+    }
     
 }

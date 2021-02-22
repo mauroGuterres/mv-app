@@ -14,6 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import {MatFormFieldModule} from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input';
 import { AboutComponent } from './components/about/about.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { EstabelecimentoComponent } from './components/estabelecimento/listagem/estabelecimento.component';
@@ -42,7 +44,9 @@ import { EstabelecimentoAddComponent } from './components/estabelecimento/add/es
     MatTableModule,
     MatListModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [NavigatorComponent]
