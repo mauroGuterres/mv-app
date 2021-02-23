@@ -7,6 +7,19 @@
   <mat-divider class="space"></mat-divider>
   <table mat-table [dataSource]="estabelecimento" class="mat-elevation-z8">
 
+    <!-- Coluna de ações-->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let element">
+        <a href="estabelecimento/add/{{element.id}}"><button mat-icon-button color="primary">
+          <mat-icon class="material-icons">edit</mat-icon>
+      </button></a>
+        <button (click)="removeEstabelecimento(element.id)" mat-icon-button color="primary">
+          <mat-icon class="material-icons">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
     <!-- Coluna Nome -->
     <ng-container matColumnDef="Nome">
       <th mat-header-cell *matHeaderCellDef> Nome </th>

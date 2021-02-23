@@ -28,6 +28,13 @@ export default class EstabelecimentoApi{
         return result;
     }
 
+    removeEstabelecimento(Id: Number): Promise<void | String>{
+        let result = this.httpClient.delete<String>(this.baseUrl + "estabelecimento/excluir/" + Id).toPromise<String>().then<String>(r => {
+            return r as String;
+        });
+        return result;
+    }
+
     saveEstabelecimento(estabelecimento: EstabelecimentoDTO): Promise<void | String>{
         let result = this.httpClient.post<String>(this.baseUrl + "estabelecimento/cadastrar", estabelecimento).toPromise<String>().then<String>(r => {
             return r as String;

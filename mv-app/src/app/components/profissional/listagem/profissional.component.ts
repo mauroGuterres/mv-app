@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import ProfissionalDTO from 'src/app/dto/profissional-dto';
 import ProfissionalApi from 'src/app/api/profissional-api';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-profissional',
@@ -12,17 +13,28 @@ export class ProfissionalComponent implements OnInit {
 
   api!: ProfissionalApi;  
   profissional!: ProfissionalDTO[];
-  displayedColumns: string[] = ['Nome', 'Endereco', 'Celular', 'Funcao'];
+  displayedColumns: string[] = ['actions','Nome', 'Endereco', 'Celular', 'Funcao'];
   profissionalFilter: ProfissionalDTO = new ProfissionalDTO();
+  snackBar!: MatSnackBar;
   
 
-  constructor(httpClient: HttpClient) {
+  constructor(httpClient: HttpClient, snackBar: MatSnackBar) {
     this.api = new ProfissionalApi(httpClient);    
+    this.snackBar = snackBar;
    }
 
    getProfissionalFromApi(profissional: ProfissionalDTO[]){    
     this.profissional = profissional; 
     console.log(this.profissional);   
+  }
+
+  removeProfissional(Id: Number){
+    this.api.removeProfissional(Id).then(r => {      
+      this.snackBar.open(r + "", "Entendido!");
+      this.profissional = this.profissional.filter(f=> {
+       return f.id != Id;
+      });
+    });
   }
 
   ngOnInit(): void {    

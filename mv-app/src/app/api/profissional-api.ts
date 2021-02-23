@@ -32,6 +32,13 @@ export default class ProfissionalApi{
         return result;
     }
 
+    removeProfissional(Id: Number): Promise<void | String>{
+        let result = this.httpClient.delete<String>(this.baseUrl + "profissional/excluir/" + Id).toPromise<String>().then<String>(r => {
+            return r as String;
+        });
+        return result;
+    }
+
     saveProfissional(profissional: ProfissionalDTO): Promise<void | String>{
         let result = this.httpClient.post<String>(this.baseUrl + "profissional/cadastrar", profissional).toPromise<String>().then<String>(r => {
             return r as String;
