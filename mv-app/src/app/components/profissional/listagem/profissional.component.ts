@@ -29,12 +29,15 @@ export class ProfissionalComponent implements OnInit {
   }
 
   removeProfissional(Id: Number){
-    this.api.removeProfissional(Id).then(r => {      
-      this.snackBar.open(r + "", "Entendido!");
-      this.profissional = this.profissional.filter(f=> {
-       return f.id != Id;
+    if(window.confirm("Excluir profissional?")){
+      this.api.removeProfissional(Id).then(r => {      
+        this.snackBar.open(r + "", "Entendido!");
+        this.profissional = this.profissional.filter(f=> {
+         return f.id != Id;
+        });
       });
-    });
+    }
+    
   }
 
   ngOnInit(): void {    

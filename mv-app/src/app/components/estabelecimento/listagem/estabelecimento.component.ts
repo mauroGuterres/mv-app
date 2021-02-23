@@ -33,14 +33,15 @@ export class EstabelecimentoComponent implements OnInit {
   }
 
   removeEstabelecimento(Id: Number){
-    
-    this.api.removeEstabelecimento(Id).then(r => {
-      debugger;
-      this.snackBar.open(r + "", "Entendido!");
-      this.estabelecimento = this.estabelecimento.filter(f=> {
-       return f.id != Id;
+    if(window.confirm("Remover estabelecimento?")){
+      this.api.removeEstabelecimento(Id).then(r => {      
+        this.snackBar.open(r + "", "Entendido!");
+        this.estabelecimento = this.estabelecimento.filter(f=> {
+         return f.id != Id;
+        });
       });
-    });
+    }
+    
   }
 
   ngOnInit(): void {
