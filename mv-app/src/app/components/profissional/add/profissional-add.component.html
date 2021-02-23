@@ -1,5 +1,7 @@
 <div class="container">
+    <h4>Profissional \ {{shouldGetProfissional ? "Editando" : "Cadastrando"}}</h4>
 
+    <mat-divider></mat-divider>
     <mat-form-field appearance="standard">
         <mat-label>Nome</mat-label>
         <input [(ngModel)]="profissional.nome"  matInput placeholder="Nome do Profissional">                

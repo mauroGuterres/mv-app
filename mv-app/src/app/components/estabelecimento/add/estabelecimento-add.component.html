@@ -1,5 +1,9 @@
 <div class="container">
 
+<h4>Estabelecimento \ {{shouldGetEstabelecimento ? "Editando" : "Cadastrando"}}</h4>
+
+<mat-divider></mat-divider>
+
     <mat-form-field appearance="standard">
         <mat-label>Nome</mat-label>
         <input [(ngModel)]="estabelecimento.nome"  matInput placeholder="Nome do Estabelecimento">                
