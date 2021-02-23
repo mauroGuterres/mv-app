@@ -34,7 +34,7 @@ export default class ProfissionalApi{
 
     saveProfissional(profissional: ProfissionalDTO): Promise<void | String>{
         let result = this.httpClient.post<String>(this.baseUrl + "profissional/cadastrar", profissional).toPromise<String>().then<String>(r => {
-            return r;
+            return r as String;
         });
         return result;
     }

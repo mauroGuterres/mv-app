@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import ProfissionalApi from 'src/app/api/profissional-api';
 import ProfissionalDTO from 'src/app/dto/profissional-dto';
@@ -14,10 +15,13 @@ export class ProfissionalAddComponent implements OnInit {
   profissional!: ProfissionalDTO;
   profissionalApi!: ProfissionalApi;
   shouldGetProfissional: boolean = false;
+  snackBar!: MatSnackBar;
   Id: Number = 0;
 
-  constructor(httpClient: HttpClient, route: ActivatedRoute) {    
+
+  constructor(httpClient: HttpClient, route: ActivatedRoute, snackBar: MatSnackBar) {    
     this.profissionalApi = new ProfissionalApi(httpClient);
+    this.snackBar = snackBar;
     this.profissional = new ProfissionalDTO();
     route.params.subscribe(params => {
       this.shouldGetProfissional = params.id != undefined;
@@ -35,8 +39,8 @@ export class ProfissionalAddComponent implements OnInit {
   }
 
   saveProfissional(){
-    this.profissionalApi.saveProfissional(this.profissional).then(r => {
-      console.log(r);
+    this.profissionalApi.saveProfissional(this.profissional).then(r => {        
+        this.snackBar.open(r + "", "Entendido!");            
     });
   }
 

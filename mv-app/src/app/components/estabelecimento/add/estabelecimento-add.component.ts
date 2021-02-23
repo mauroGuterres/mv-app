@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import EstabelecimentoApi from 'src/app/api/estabelecimento-api';
 import EstabelecimentoDTO from 'src/app/dto/estabelecimento-dto';
@@ -16,14 +17,15 @@ export class EstabelecimentoAddComponent implements OnInit {
   estabelecimentoApi!: EstabelecimentoApi;
   shouldGetEstabelecimento: boolean = false;
   Id: Number = 0;
+  snackBar!: MatSnackBar;
 
-  constructor(httpClient: HttpClient, route: ActivatedRoute) {    
+  constructor(httpClient: HttpClient, route: ActivatedRoute, snackBar: MatSnackBar) {    
     this.estabelecimentoApi = new EstabelecimentoApi(httpClient);
     this.estabelecimento = new EstabelecimentoDTO();
+    this.snackBar = snackBar;
     route.params.subscribe(params => {
       this.shouldGetEstabelecimento = params.id != undefined;
-      this.Id = params.id;
-      console.log(this.shouldGetEstabelecimento);
+      this.Id = params.id;      
     });
    }
 
@@ -36,6 +38,7 @@ export class EstabelecimentoAddComponent implements OnInit {
 
    saveEstabelecimento(){
      this.estabelecimentoApi.saveEstabelecimento(this.estabelecimento).then(r => {
+       this.snackBar.open(r + "", "Entendido!");
        console.log(r);
      });
    }
